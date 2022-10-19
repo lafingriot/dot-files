@@ -1,1 +1,1 @@
-# tmux-settings
+# Dot files git collection
