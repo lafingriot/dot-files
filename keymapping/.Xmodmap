@@ -1,0 +1,30 @@
+! switch ctrl and caps lock on linux keyboard for better ease of tmux and neovim 
+
+!File gets saved as ~/.Xmodmap
+! should be picked up upon xorg launch - ie logon/logoff; reboot
+! or source the file manully by running `xmodmap .Xmodmap`
+
+
+! chapture key press by running xev and looking for keypress events 
+!KeyPress event, serial 37, synthetic NO, window 0x3600001,
+!    root 0x771, subw 0x0, time 5054407, (2932,880), root:(2990,1007),
+!    state 0x10, keycode 66 (keysym 0xffe5, Caps_Lock), same_screen YES,
+!    XLookupString gives 0 bytes:
+!    XmbLookupString gives 0 bytes:
+!    XFilterEvent returns: False
+!
+!KeyPress event, serial 37, synthetic NO, window 0x3400001,
+!    root 0x771, subw 0x0, time 5163342, (3231,1141), root:(3289,1268),
+!    state 0x10, keycode 37 (keysym 0xffe3, Control_L), same_screen YES,
+!    XLookupString gives 0 bytes:
+!    XmbLookupString gives 0 bytes:
+!    XFilterEvent returns: False
+
+!keycode 66 = Control_L
+!keycode 37 = Caps_Lock
+
+! well that didn't work out so well.  xev thoght that the keys were rebound correctly and was showing up in the logs as such.  But something else was still over writting caps lock forcing it to not change.  All this did was make it so i didn't have a left control key at all.
+! had to resource this file with the origional settings
+
+!keycode 66 = Caps_Lock
+!keycode 37 = Control_L
